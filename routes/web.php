@@ -15,8 +15,24 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'DashboardController@index');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'DashboardController@index')->name('home');
+
+Route::get('/dashboard/employee', 'AdminController@employees')->name('admin.employee');
+
+Route::get('/dashboard/addKitchenStaff', 'AdminController@addKitchenStaff')->name('admin.addKitchenStaff');
+
+Route::post('/dashboard/createKitchenStaff', 'AdminController@createKitchenStaff')->name('admin.createKitchenStaff');
+
+Route::get('/dashboard/editKitchenStaff', 'AdminController@editKitchenStaff')->name('admin.editKitchenStaff');
+
+Route::post('/dashboard/updateKitchenStaff/{id}', 'AdminController@updateKitchenStaff')->name('admin.updateKitchenStaff');
+
+Route::get('/dashboard/deleteKitchenStaff/{id}', 'AdminController@deleteKitchenStaff')->name('admin.deleteKitchenStaff');
+
+Route::get('/dashboard/kitchenStaffs', 'AdminController@kitchenStaffs')->name('admin.kitchenStaffs');
+
+
 
 

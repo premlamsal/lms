@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+        if($user->isVerified=='0'){
+            return 'Your account is not Verified.';
+        }
+
         return view('home');
     }
 }

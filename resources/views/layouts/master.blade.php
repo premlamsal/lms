@@ -77,7 +77,7 @@
           </div>
         </div>
       </li>
-
+    @can('isAdmin')
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -87,12 +87,13 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Kitchen Components:</h6>
-            <a class="collapse-item" href="buttons.html">Add</a>
-            <a class="collapse-item" href="buttons.html">Staffs</a>
+            <a class="collapse-item" href="{{route('admin.addKitchenStaff')}}">Add Staff</a>
+            <a class="collapse-item" href="{{route('admin.kitchenStaffs')}}">Staffs</a>
           </div>
         </div>
       </li>
-
+    @endcan
+      @can('isAdmin')
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -106,12 +107,12 @@
           </div>
         </div>
       </li>
-
+      @endcan
       <!-- Divider -->
       <hr class="sidebar-divider">
 
    
-
+    @can('isAdmin')
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="true" aria-controls="collapseCategories">
@@ -126,21 +127,21 @@
           </div>
         </div>
       </li>
-
+    @endcan
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="charts.html">
           <i class="fas fa-fw fa-user"></i>
           <span>User Profile</span></a>
       </li>
-
+    @can('isAdmin')
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="tables.html">
           <i class="fas fa-fw fa-cog"></i>
           <span>App Settings</span></a>
       </li>
-
+    @endcan
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -344,10 +345,7 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-          </div>
+         
 
            <!-- content that will be imported here -->
 
