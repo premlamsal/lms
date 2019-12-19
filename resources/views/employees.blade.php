@@ -11,12 +11,14 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary" style="display: inline-block;">Some Heading</h6>
+              <h6 class="m-0 font-weight-bold text-primary" style="display: inline-block;">List of Employees</h6>
                  
             </div>
              <div class="card-body">
+              @if($users->count()>0)
               <div class="table-responsive">
                 <table class="table table-striped table-bordered" width="100%" cellspacing="0">
+
                   <thead>
                     <tr>
                       <th>ID</th>
@@ -49,12 +51,15 @@
                         @endif
                       </td>
                       <td>{{$user->created_at->diffForHumans()}}</td>
-                      <td><button class="btn btn-outline-success" style="margin-right: 5px;" ><span class="fa fa-edit"></span></button><button class="btn btn-outline-danger"><span class="fa fa-trash"></span></button></td>
+                      <td><a class="btn btn-outline-success" style="margin-right: 5px;" href="/dashboard/editEmployee/{{$user->id}}"><span class="fa fa-edit"></span></a><a class="btn btn-outline-danger" href="/dashboard/deleteEmployee/{{$user->id}}"><span class="fa fa-trash"></span></a></td>
                     </tr>
                     @endforeach
                   </tbody>
                 </table>
               </div>
+              @else
+               No data found 
+              @endif
             </div>
           </div>
  </div>

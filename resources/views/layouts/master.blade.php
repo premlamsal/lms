@@ -103,7 +103,8 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Employee Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Employees</a>
+            <a class="collapse-item" href="">Add Employee</a>
+            <a class="collapse-item" href="{{route('admin.employees')}}">Employees</a>
           </div>
         </div>
       </li>

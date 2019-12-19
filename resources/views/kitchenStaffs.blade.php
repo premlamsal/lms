@@ -49,7 +49,7 @@
                         @endif
                       </td>
                       <td>{{$user->created_at->diffForHumans()}}</td>
-                      <td><a class="btn btn-outline-success" style="margin-right: 5px;" href="/admin/editKitchenStaff/{{$user->id}}"><span class="fa fa-edit"></span></a><a class="btn btn-outline-danger" href="/admin/deleteKitchenStaff/{{$user->id}}"><span class="fa fa-trash"></span></a></td>
+                      <td><a class="btn btn-outline-success" style="margin-right: 5px;" href="/dashboard/editKitchenStaff/{{$user->id}}"><span class="fa fa-edit"></span></a><a class="btn btn-outline-danger" href="/dashboard/deleteKitchenStaff/{{$user->id}}"><span class="fa fa-trash"></span></a></td>
                     </tr>
                     @endforeach
                   </tbody>
