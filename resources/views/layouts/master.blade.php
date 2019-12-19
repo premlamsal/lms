@@ -51,7 +51,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="/dashboard">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -63,7 +63,41 @@
       <div class="sidebar-heading">
         Interface
       </div>
-  <!-- Nav Item - Pages Collapse Menu -->
+
+ 
+
+    @can('isAdmin')
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders" aria-expanded="true" aria-controls="collapseOrders">
+          <i class="fas fa-fw fa-pizza-slice"></i>
+          <span>Orders</span>
+        </a>
+        <div id="collapseOrders" class="collapse" aria-labelledby="headingOrders" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Orders Screens:</h6>
+            <a class="collapse-item" href="login.html">Oders History</a>
+          </div>
+        </div>
+      </li>
+    @endcan
+  @can('isKitchenStaff')
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders" aria-expanded="true" aria-controls="collapseOrders">
+          <i class="fas fa-fw fa-pizza-slice"></i>
+          <span>Orders</span>
+        </a>
+        <div id="collapseOrders" class="collapse" aria-labelledby="headingOrders" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Orders Screens:</h6>
+            <a class="collapse-item" href="{{route('kitchenStaff.orders')}}">Oders</a>
+          </div>
+        </div>
+      </li>
+    @endcan
+   @can('isKitchenStaff')
+       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFoods" aria-expanded="true" aria-controls="headingFoods">
           <i class="fas fa-fw fa-hamburger"></i>
@@ -72,11 +106,12 @@
         <div id="collapseFoods" class="collapse" aria-labelledby="headingFoods" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Food Screens:</h6>
-            <a class="collapse-item" href="login.html">Add Food</a>
-            <a class="collapse-item" href="register.html">Foods</a>
+            <a class="collapse-item" href="{{route('kitchenStaff.addFood')}}">Add Food</a>
+            <a class="collapse-item" href="{{route('kitchenStaff.foods')}}">Foods</a>
           </div>
         </div>
       </li>
+    @endcan
     @can('isAdmin')
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
@@ -109,9 +144,7 @@
         </div>
       </li>
       @endcan
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
+     
    
     @can('isAdmin')
       <!-- Nav Item - Pages Collapse Menu -->
@@ -129,22 +162,8 @@
         </div>
       </li>
     @endcan
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-user"></i>
-          <span>User Profile</span></a>
-      </li>
-    @can('isAdmin')
-      <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>App Settings</span></a>
-      </li>
-    @endcan
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
+     
+   
 
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">

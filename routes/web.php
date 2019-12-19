@@ -51,6 +51,35 @@ Route::post('/dashboard/updateKitchenStaff', 'AdminController@updateKitchenStaff
 Route::get('/dashboard/deleteKitchenStaff/{id}', 'AdminController@deleteKitchenStaff')->name('admin.deleteKitchenStaff');
 
 
+//orders routes
+
+Route::get('/dashboard/orders', 'KitchenStaffController@orders')->name('kitchenStaff.orders');
+
+Route::get('/dashboard/order/ready/{id}', 'KitchenStaffController@orderReady')->name('kitchenStaff.order.ready');
+
+Route::get('/dashboard/order/preparing/{id}', 'KitchenStaffController@orderPreparing')->name('kitchenStaff.order.preparing');
+
+Route::get('/dashboard/order/notready/{id}', 'KitchenStaffController@orderNotReady')->name('kitchenStaff.order.notready');
+
+//add food
+Route::get('/dashboard/foods', 'KitchenStaffController@foods')->name('kitchenStaff.foods');
+
+Route::get('/dashboard/addFood', 'KitchenStaffController@addFood')->name('kitchenStaff.addFood');
+
+Route::post('/dashboard/createFood', 'KitchenStaffController@createFood')->name('kitchenStaff.createFood');
+
+
+Route::get('/dashboard/editFood/{id}', 'KitchenStaffController@editFood')->name('kitchenStaff.editFood');
+
+Route::post('/dashboard/updateFood', 'KitchenStaffController@updateFood')->name('kitchenStaff.updateFood');
+
+
+
+Route::get('/dashboard/deleteFood/{id}', 'KitchenStaffController@deleteFood')->name('kitchenStaff.deleteFood');
+
+
+
+
 
 
 
