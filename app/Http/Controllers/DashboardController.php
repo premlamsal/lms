@@ -24,10 +24,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        if($user->isVerified=='0'){
-            return 'Your account is not Verified.';
-        }
+        // $user = Auth::user();
+        // if($user->isVerified=='0'){
+        //     return 'Your account is not Verified.';
+        // }
 
         return view('home');
     }
