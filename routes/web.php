@@ -128,6 +128,38 @@ Route::get('/dashboard/deleteFood/{id}', 'KitchenStaffController@deleteFood')->n
 
 
 
+
+
+Route::get('/dashboard/menus', 'KitchenStaffController@menus')->name('kitchenStaff.menus');
+
+Route::get('/dashboard/addMenu', 'KitchenStaffController@addMenu')->name('kitchenStaff.addMenu');
+
+
+Route::post('/dashboard/createMenu', 'KitchenStaffController@createMenu')->name('kitchenStaff.createMenu');
+
+
+Route::get('/dashboard/editMenu/{id}', 'KitchenStaffController@editFood')->name('kitchenStaff.editFood');
+
+Route::post('/dashboard/updateFood', 'KitchenStaffController@updateFood')->name('kitchenStaff.updateFood');
+
+
+
+Route::get('/dashboard/addMenuItems', 'KitchenStaffController@addMenuItems')->name('kitchenStaff.addMenuItems');
+
+
+
+Route::get('/dashboard/deleteFood/{id}', 'KitchenStaffController@deleteFood')->name('kitchenStaff.deleteFood');
+
+
+
+
+
+
+
+
+
+
+
 });//end of employee middleware
 
 

@@ -7,6 +7,8 @@ use App\Order;
 use App\Category;
 use Auth;
 use App\Food;
+use App\Menu;
+
 class KitchenStaffController extends Controller
 {
     public function orders(){
@@ -95,7 +97,7 @@ class KitchenStaffController extends Controller
    }
    public function deleteFood($id){
 	
-	$userID=Auth::user()->id;
+	  $userID=Auth::user()->id;
 
    	$food=Food::findOrFail($id);
    	$food->status='0';
@@ -104,4 +106,63 @@ class KitchenStaffController extends Controller
     }
 
    }
+   public function menus(){
+
+    $menus=Menu::with('menuItems')->get();
+
+    return view('menus')->with('menus',$menus);
+   
+   }
+   public function addMenu(){
+
+   }
+
+   public function createMenu(){
+    
+    $userID=Auth::user()->id;
+
+    $menu=new Menu();
+    $menu->name=$request->name;
+    $menu->status=1;
+    $menu->user_id=$userID;
+    $menu->save();
+
+    return redirect()->back();
+   }
+   public function editMenu($id){
+
+    $menus=Menu::with('menuItems')->get();
+   }
+
+    public function updateMenu(Request $request){
+
+    $menuId=$request->id;
+
+    $userID=Auth::user()->id;
+
+    $menu=Menu::findOrFail($id);
+    $menu->name=$request->name;
+    $menu->status=1;
+    $menu->user_id=$userID;
+    $menu->save();
+
+    return redirect()->back();
+
+
+   }
+    public function deleteMenu($id){
+
+    $menuId=$request->id;
+
+    $userID=Auth::user()->id;
+
+    $menu=Menu::where('id',$menuId)->where('status',1);
+    $menu->status=0;
+    $menu->save();
+
+    return redirect()->back();
+
+
+   }
+
 }

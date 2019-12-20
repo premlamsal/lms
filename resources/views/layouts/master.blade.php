@@ -112,6 +112,23 @@
         </div>
       </li>
     @endcan
+     @can('isKitchenStaff')
+       <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMenu" aria-expanded="true" aria-controls="headingMenu">
+          <i class="fas fa-fw fa-hamburger"></i>
+          <span>Menu</span>
+        </a>
+        <div id="collapseMenu" class="collapse" aria-labelledby="headingMenu" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Menu Screens:</h6>
+            <a class="collapse-item" href="{{route('kitchenStaff.menus')}}">Menus</a>
+            <a class="collapse-item" href="{{route('kitchenStaff.addMenu')}}">Add Menu</a>
+            <a class="collapse-item" href="{{route('kitchenStaff.addMenuItems')}}">Add Menu Items</a>
+          </div>
+        </div>
+      </li>
+    @endcan
     @can('isAdmin')
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
