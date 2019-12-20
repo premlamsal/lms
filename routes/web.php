@@ -150,7 +150,7 @@ Route::post('/dashboard/createMenuItem', 'KitchenStaffController@createMenuItem'
 
 
 
-Route::get('/dashboard/deleteFood/{id}', 'KitchenStaffController@deleteFood')->name('kitchenStaff.deleteFood');
+Route::get('/dashboard/deleteMenuItem/{id}', 'KitchenStaffController@deleteMenuItem')->name('kitchenStaff.deleteMenuItem');
 
 
 

@@ -31,6 +31,14 @@
                       <td>{{$menu->name}}</td>
                       <td>
                         <ul>
+                         @if($menu->menuItems->count()>0)
+                           @foreach($menu->menuItems as $menuItem)
+
+                           <li>{{$menuItem->food->name}} <a href="/dashboard/deleteMenuItem/{{$menuItem->id}}">Delete</a> </li>
+
+
+                           @endforeach
+                         @endif
 
                         </ul>
                       </td>

@@ -10,4 +10,7 @@ class MenuItem extends Model
     	
     	return $this->belongsTo('App\Menu');
     }
+    public function food(){
+    	return $this->belongsTo('App\Food');
+    }
 }

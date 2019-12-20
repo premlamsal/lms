@@ -175,7 +175,7 @@ class KitchenStaffController extends Controller
     return redirect()->back();  
 
    }
-   public function delMenuItem($id){
+   public function deleteMenuItem($id){
     $menuItem=MenuItem::findOrFail($id);
     $menuItem->delete();
     return redirect()->back();
