@@ -21,6 +21,22 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+Route::group(['middleware' => ['admin']], function () {
+    
+
+
+
 Route::get('/dashboard/employees', 'AdminController@employees')->name('admin.employees');
 
 Route::get('/dashboard/addEmployee', 'AdminController@addEmployee')->name('admin.addEmployee');
@@ -33,6 +49,31 @@ Route::post('/dashboard/updateEmployee', 'AdminController@updatEemployee')->name
 
 Route::get('/dashboard/deleteEmployee/{id}', 'AdminController@deleteEmployee')->name('admin.deleteEmployee');
 
+
+
+
+});//end of admin middleware
+
+
+
+
+Route::group(['middleware' => ['employee']], function () {
+    
+
+
+Route::get('/dashboard/myOrders/', 'employeeController@myOrders')->name('employee.myOrders');
+
+Route::get('/dashboard/deleteOrder/{id}', 'employeeController@deleteOrder')->name('employee.deleteOrder');
+
+
+
+});//end of employee middleware
+
+
+
+
+Route::group(['middleware' => ['kitchenStaff']], function () {
+    
 
 
 
@@ -51,6 +92,9 @@ Route::post('/dashboard/updateKitchenStaff', 'AdminController@updateKitchenStaff
 Route::get('/dashboard/deleteKitchenStaff/{id}', 'AdminController@deleteKitchenStaff')->name('admin.deleteKitchenStaff');
 
 
+
+
+
 //orders routes
 
 Route::get('/dashboard/orders', 'KitchenStaffController@orders')->name('kitchenStaff.orders');
@@ -60,6 +104,10 @@ Route::get('/dashboard/order/ready/{id}', 'KitchenStaffController@orderReady')->
 Route::get('/dashboard/order/preparing/{id}', 'KitchenStaffController@orderPreparing')->name('kitchenStaff.order.preparing');
 
 Route::get('/dashboard/order/notready/{id}', 'KitchenStaffController@orderNotReady')->name('kitchenStaff.order.notready');
+
+
+
+
 
 //add food
 Route::get('/dashboard/foods', 'KitchenStaffController@foods')->name('kitchenStaff.foods');
@@ -80,10 +128,7 @@ Route::get('/dashboard/deleteFood/{id}', 'KitchenStaffController@deleteFood')->n
 
 
 
-Route::get('/dashboard/myOrders/', 'employeeController@myOrders')->name('employee.myOrders');
-
-Route::get('/dashboard/deleteOrder/{id}', 'employeeController@deleteOrder')->name('employee.deleteOrder');
-
+});//end of employee middleware
 
 
 
