@@ -123,10 +123,11 @@
 
 
         @can('isEmployee')
-          <!-- DataTales Example -->
+
+         <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary" style="display: inline-block;">Foods</h6>
+              <h6 class="m-0 font-weight-bold text-primary" style="display: inline-block;">Today's Menu</h6>
                  
             </div>
             <div class="card-body">
@@ -145,6 +146,16 @@
                   </ul>
             </div>
           </div>
+
+
+       
+
+
+
+
+
+
+
         @endcan
 
 
