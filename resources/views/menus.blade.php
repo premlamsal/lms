@@ -15,6 +15,26 @@
                  
             </div>
              <div class="card-body">
+              <form action="{{route('kitchenStaff.setMenuOfDay')}}" method="post">
+                @csrf
+                <div class="form-group">
+                  
+                  <label>Select Menu of The Day</label>
+                  <select class="form-control" name="menu_id">
+                    @foreach($menus as $menu)
+                      @if($menu->id===$snipp->menu_of_day)
+                      <option value="{{$menu->id}}" selected="">{{$menu->name}}</option>
+                      @else
+                      <option value="{{$menu->id}}">{{$menu->name}}</option>
+                      @endif
+                    @endforeach
+                  </select> 
+                </div>
+                
+                <input type="submit" name="Save" value="Save" class="btn btn-primary">
+                  
+              </form>
+            <hr/>
               <div class="table-responsive">
                 <table class="table table-striped table-bordered" width="100%" cellspacing="0">
                   <thead>

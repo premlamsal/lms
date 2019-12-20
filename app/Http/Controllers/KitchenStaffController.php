@@ -9,6 +9,7 @@ use Auth;
 use App\Food;
 use App\Menu;
 use App\MenuItem;
+use App\Snipp;
 
 class KitchenStaffController extends Controller
 {
@@ -110,8 +111,9 @@ class KitchenStaffController extends Controller
    public function menus(){
 
     $menus=Menu::with('menuItems')->get();
+    $snipp=Snipp::findOrFail(1);
 
-    return view('menus')->with('menus',$menus);
+    return view('menus')->with(['menus'=>$menus,'snipp'=>$snipp]);
    
    }
    public function addMenu(){
@@ -179,6 +181,14 @@ class KitchenStaffController extends Controller
     $menuItem=MenuItem::findOrFail($id);
     $menuItem->delete();
     return redirect()->back();
+   }
+   public function setMenuOfDay(Request $request){
+      $menu_id=$request->menu_id;
+
+      $snipp=Snipp::findOrFail(1);
+      $snipp->menu_of_day=$menu_id;
+      $snipp->save();
+      return redirect()->back();
    }
 
 }

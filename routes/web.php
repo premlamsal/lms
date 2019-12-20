@@ -149,6 +149,9 @@ Route::get('/dashboard/addMenuItem', 'KitchenStaffController@addMenuItem')->name
 Route::post('/dashboard/createMenuItem', 'KitchenStaffController@createMenuItem')->name('kitchenStaff.createMenuItem');
 
 
+Route::post('/dashboard/setMenuOfDay', 'KitchenStaffController@setMenuOfDay')->name('kitchenStaff.setMenuOfDay');
+
+
 
 Route::get('/dashboard/deleteMenuItem/{id}', 'KitchenStaffController@deleteMenuItem')->name('kitchenStaff.deleteMenuItem');
 
