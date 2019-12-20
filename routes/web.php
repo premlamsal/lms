@@ -80,6 +80,13 @@ Route::get('/dashboard/deleteFood/{id}', 'KitchenStaffController@deleteFood')->n
 
 
 
+Route::get('/dashboard/myOrders/', 'employeeController@myOrders')->name('employee.myOrders');
+
+Route::get('/dashboard/deleteOrder/{id}', 'employeeController@deleteOrder')->name('employee.deleteOrder');
+
+
+
+
 
 
 

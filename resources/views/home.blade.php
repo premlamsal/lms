@@ -102,6 +102,7 @@
           <!-- <p class="mb-4"> -->
              
           </p>
+          @can('isKitchenStaff')
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -110,13 +111,47 @@
             </div>
             <div class="card-body">
                   <ul>
-                    <li>Prem Lamsal ordered Lauch at 2 min ago</li>
-                    <li>Prem Lamsal ordered Lauch at 2 min ago</li>
-                    <li>Prem Lamsal ordered Lauch at 2 min ago</li>
-                    <li>Prem Lamsal ordered Lauch at 2 min ago</li>
+                    @foreach($orders as $order)
+                    <li><b>{{$order->created_at->diffForHumans()}}</b> | <b>{{$order->user->name}}</b> ordered <b>{{$order->food->name}}</b></li>
+                   @endforeach
                   </ul>
             </div>
           </div>
+          @endcan
+
+
+
+
+        @can('isEmployee')
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary" style="display: inline-block;">Foods</h6>
+                 
+            </div>
+            <div class="card-body">
+                  <ul>
+                    @foreach($foods as $food)
+                      <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="/img/2.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <h6 class="card-title">{{$food->category->name}}</h6>
+                          <h5 class="card-title">{{$food->name}}</h5>
+                          <p class="card-text" style="text-align: justify;">{{$food->description}}</p>
+                          <a href="#" class="btn btn-primary">Order</a>
+                        </div>
+                      </div>
+                   @endforeach
+                  </ul>
+            </div>
+          </div>
+        @endcan
+
+
+
+
+
+
  </div>
 
 @endsection
