@@ -110,11 +110,16 @@
                  
             </div>
             <div class="card-body">
+              @if($orders->count()>0)
                   <ul>
+
                     @foreach($orders as $order)
                     <li><b>{{$order->created_at->diffForHumans()}}</b> | <b>{{$order->user->name}}</b> ordered <b>{{$order->food->name}}</b></li>
                    @endforeach
                   </ul>
+              @else
+              Nothing to Show || Employee orders will be displayed here!!
+              @endif
             </div>
           </div>
           @endcan
