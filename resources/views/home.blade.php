@@ -2,6 +2,9 @@
 @section('title', 'Dashboard')
 
 @section('PageContent')
+
+          
+
 @can('isAdmin')
   <!-- Content Row -->
           <div class="row">
@@ -129,6 +132,9 @@
 
         @can('isEmployee')
 
+
+
+
          <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -137,17 +143,30 @@
             </div>
             <div class="card-body">
                   <ul>
-                    @foreach($foods as $food)
+                   
                       <div class="card" style="width: 18rem;">
                         <img class="card-img-top" src="/img/2.jpg" alt="Card image cap">
                         <div class="card-body">
-                          <h6 class="card-title">{{$food->category->name}}</h6>
-                          <h5 class="card-title">{{$food->name}}</h5>
-                          <p class="card-text" style="text-align: justify;">{{$food->description}}</p>
-                          <a href="#" class="btn btn-primary">Order</a>
+                          <h4 class="card-title">{{$menu_of_day->name}}</h4>
+                          <hr>
+                          <h5>Food Items</h5>
+                          <div class="food-list">
+                            <ul>
+                        @if($menu_of_day->menuItems->count()>0)
+                           @foreach($menu_of_day->menuItems as $menuItem)
+
+                           <li>{{$menuItem->food->name}}
+                            <a href="/dashboard/makeOrder/{{$menu_of_day->id}}" style="margin-left: 5px;">Order</a>
+                           </li>
+
+                           @endforeach
+                         @endif
+                            </ul>
+                          </div>
+                          <br>
                         </div>
                       </div>
-                   @endforeach
+                 
                   </ul>
             </div>
           </div>
@@ -162,7 +181,6 @@
 
 
         @endcan
-
 
 
 

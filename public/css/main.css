@@ -1,0 +1,13 @@
+.food-list{
+
+}
+.food-list ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+.food-list ul li {
+	background: #eee;
+	border-radius: 5px;
+	padding: 5px;
+}

@@ -27,6 +27,7 @@
   <!-- data picker css -->
   <!-- <link href="/css/datepicker.min.css" rel="stylesheet" type="text/css"> -->
   <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
 
 </head>
 

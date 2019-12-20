@@ -60,6 +60,7 @@ Route::get('/dashboard/deleteEmployee/{id}', 'AdminController@deleteEmployee')->
 Route::group(['middleware' => ['employee']], function () {
     
 
+Route::get('/dashboard/makeOrder/{id}', 'employeeController@makeOrder')->name('employee.makeOrder');
 
 Route::get('/dashboard/myOrders/', 'employeeController@myOrders')->name('employee.myOrders');
 
