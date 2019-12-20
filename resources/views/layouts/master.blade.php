@@ -124,7 +124,7 @@
             <h6 class="collapse-header">Menu Screens:</h6>
             <a class="collapse-item" href="{{route('kitchenStaff.menus')}}">Menus</a>
             <a class="collapse-item" href="{{route('kitchenStaff.addMenu')}}">Add Menu</a>
-            <a class="collapse-item" href="{{route('kitchenStaff.addMenuItems')}}">Add Menu Items</a>
+            <a class="collapse-item" href="{{route('kitchenStaff.addMenuItem')}}">Add Menu Items</a>
           </div>
         </div>
       </li>

@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MenuItems extends Model
+class MenuItem extends Model
 {
     public function menu(){
     	
-    	$this->belongsTo('App\Menu');
+    	return $this->belongsTo('App\Menu');
     }
 }

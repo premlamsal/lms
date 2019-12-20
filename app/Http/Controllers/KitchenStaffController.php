@@ -8,6 +8,7 @@ use App\Category;
 use Auth;
 use App\Food;
 use App\Menu;
+use App\MenuItem;
 
 class KitchenStaffController extends Controller
 {
@@ -115,15 +116,15 @@ class KitchenStaffController extends Controller
    }
    public function addMenu(){
 
+    return view('addMenu');
    }
 
-   public function createMenu(){
+   public function createMenu(Request $request){
     
     $userID=Auth::user()->id;
-
     $menu=new Menu();
     $menu->name=$request->name;
-    $menu->status=1;
+    $menu->status='1';
     $menu->user_id=$userID;
     $menu->save();
 
@@ -131,7 +132,8 @@ class KitchenStaffController extends Controller
    }
    public function editMenu($id){
 
-    $menus=Menu::with('menuItems')->get();
+    $menu=Menu::findOrFail($id);
+    return view('editMenu')->with('menu',$menu);  
    }
 
     public function updateMenu(Request $request){
@@ -139,10 +141,9 @@ class KitchenStaffController extends Controller
     $menuId=$request->id;
 
     $userID=Auth::user()->id;
-
-    $menu=Menu::findOrFail($id);
+    $menu=Menu::findOrFail($menuId);
     $menu->name=$request->name;
-    $menu->status=1;
+    $menu->status='1';
     $menu->user_id=$userID;
     $menu->save();
 
@@ -151,18 +152,33 @@ class KitchenStaffController extends Controller
 
    }
     public function deleteMenu($id){
-
     $menuId=$request->id;
-
     $userID=Auth::user()->id;
-
     $menu=Menu::where('id',$menuId)->where('status',1);
     $menu->status=0;
     $menu->save();
 
     return redirect()->back();
+   }
+   public function addMenuItem(){
+    $foods=Food::all();
+    $menus=Menu::all();
+    return view('addMenuItem')->with(['foods'=>$foods,'menus'=>$menus]);
+   }
+   public function createMenuItem(Request $request){
+    $menuItem=new menuItem();
 
+    $menuItem->food_id=$request->food_id;
+    $menuItem->menu_id=$request->menu_id;
+    $menuItem->save();
 
+    return redirect()->back();  
+
+   }
+   public function delMenuItem($id){
+    $menuItem=MenuItem::findOrFail($id);
+    $menuItem->delete();
+    return redirect()->back();
    }
 
 }

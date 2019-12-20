@@ -138,13 +138,15 @@ Route::get('/dashboard/addMenu', 'KitchenStaffController@addMenu')->name('kitche
 Route::post('/dashboard/createMenu', 'KitchenStaffController@createMenu')->name('kitchenStaff.createMenu');
 
 
-Route::get('/dashboard/editMenu/{id}', 'KitchenStaffController@editFood')->name('kitchenStaff.editFood');
+Route::get('/dashboard/editMenu/{id}', 'KitchenStaffController@editMenu')->name('kitchenStaff.editMenu');
 
-Route::post('/dashboard/updateFood', 'KitchenStaffController@updateFood')->name('kitchenStaff.updateFood');
+Route::post('/dashboard/updateMenu', 'KitchenStaffController@updateMenu')->name('kitchenStaff.updateMenu');
 
 
 
-Route::get('/dashboard/addMenuItems', 'KitchenStaffController@addMenuItems')->name('kitchenStaff.addMenuItems');
+Route::get('/dashboard/addMenuItem', 'KitchenStaffController@addMenuItem')->name('kitchenStaff.addMenuItem');
+
+Route::post('/dashboard/createMenuItem', 'KitchenStaffController@createMenuItem')->name('kitchenStaff.createMenuItem');
 
 
 

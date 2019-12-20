@@ -8,6 +8,6 @@ class Menu extends Model
 {
     public function menuItems(){
     	
-    	$this->hasMany('App\MenuItems');
+    	return $this->hasMany('App\MenuItem');
     }
 }

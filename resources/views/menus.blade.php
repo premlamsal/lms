@@ -31,18 +31,14 @@
                       <td>{{$menu->name}}</td>
                       <td>
                         <ul>
-                          @foreach($menu->menuItems as $item)
-                          <li>
-                              {{$item->name}}
-                          </li>
-                          @endforeach
+
                         </ul>
                       </td>
                       <td>{{$menu->created_at->diffForHumans()}}</td>
 
                       <td>
-                        <a href="order/ready/{{$order->id}}" class="btn btn-outline-success">Edit</a> 
-                        <a href="order/preparing/{{$order->id}}" class="btn btn-outline-warning">Delete</a> 
+                        <a href="/dashboard/editMenu/{{$menu->id}}" class="btn btn-outline-success">Edit</a> 
+                        <a href="/dashboard/deleteMenu/{{$menu->id}}" class="btn btn-outline-warning">Delete</a> 
                       </td>
                     </tr>
                     @endforeach
